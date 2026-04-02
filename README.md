@@ -73,13 +73,13 @@ src/
 1. Clone the repository:
 
 ```
-git clone https://github.com/your-username/finance-dashboard.git
+git clone https://github.com/Danishshaikh2004/FinanceUI.git
 ```
 
 2. Navigate to the project:
 
 ```
-cd finance-dashboard
+cd FinanceUI
 ```
 
 3. Install dependencies:
@@ -93,6 +93,7 @@ npm install
 ```
 npm run dev
 ```
+
 
 ---
 

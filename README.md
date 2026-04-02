@@ -63,7 +63,6 @@ src/
  │    ├── Dashboard.jsx
  │
  ├── data/
- ├── utils/
 ```
 
 ---
@@ -99,7 +98,11 @@ npm run dev
 
 ## 🎥 Demo
 
+<<<<<<< HEAD
 https://finance-ui-roan.vercel.app
+=======
+https://finance-ui-roan.vercel.app/
+>>>>>>> 759b337 (updated)
 
 ---
 

@@ -10,7 +10,6 @@ import Insights from "../components/dashboard/Insights";
 import { transactionsData } from "../data/mockData";
 
 const Dashboard = () => {
-  // load from localStorage
   const [transactions, setTransactions] = useState(() => {
     const saved = localStorage.getItem("transactions");
 
@@ -30,17 +29,14 @@ const Dashboard = () => {
   const [filterType, setFilterType] = useState("all");
   const [search, setSearch] = useState("");
 
-  // section refs
   const overviewRef = useRef(null);
   const transactionsRef = useRef(null);
   const insightsRef = useRef(null);
 
-  // save to localStorage
   useEffect(() => {
     localStorage.setItem("transactions", JSON.stringify(transactions));
   }, [transactions]);
 
-  // scroll handler
   const scrollToSection = (section) => {
     if (section === "overview") {
       overviewRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -53,12 +49,10 @@ const Dashboard = () => {
     }
   };
 
-  // add transaction
   const handleAddTransaction = (newTx) => {
     setTransactions((prev) => [newTx, ...prev]);
   };
 
-  // totals
   const totalBalance = useMemo(() => {
     let total = 0;
 
@@ -85,7 +79,6 @@ const Dashboard = () => {
       .reduce((sum, t) => sum + t.amount, 0);
   }, [transactions]);
 
-  // filtering
   const filteredTransactions = useMemo(() => {
     return transactions.filter((t) => {
       const matchesType =
@@ -101,15 +94,12 @@ const Dashboard = () => {
 
   return (
     <div className="flex">
-      {/* Sidebar */}
       <Sidebar scrollToSection={scrollToSection} />
 
-      {/* Main Content */}
       <div className="flex-1 md:ml-64 min-h-screen bg-gray-50">
         <Navbar role={role} setRole={setRole} />
 
         <div className="p-6">
-          {/* Overview */}
           <section ref={overviewRef}>
             <h2 className="text-lg font-semibold text-gray-700 mb-4">
               Overview
@@ -124,7 +114,6 @@ const Dashboard = () => {
             <Charts transactions={transactions} />
           </section>
 
-          {/* Transactions */}
           <section ref={transactionsRef} className="mt-10">
             <TransactionFilter
               filterType={filterType}
@@ -140,7 +129,6 @@ const Dashboard = () => {
             <TransactionTable transactions={filteredTransactions} />
           </section>
 
-          {/* Insights */}
           <section ref={insightsRef} className="mt-10">
             <Insights transactions={transactions} />
           </section>

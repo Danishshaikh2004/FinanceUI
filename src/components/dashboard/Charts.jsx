@@ -13,13 +13,11 @@ import {
 const COLORS = ["#4f46e5", "#22c55e", "#f59e0b", "#ef4444"];
 
 const Charts = ({ transactions }) => {
-  // group by date (for line chart)
   const lineData = transactions.map((t) => ({
     date: t.date,
     amount: t.type === "income" ? t.amount : -t.amount,
   }));
 
-  // group by category (for pie chart)
   const categoryMap = {};
 
   transactions.forEach((t) => {
@@ -36,7 +34,6 @@ const Charts = ({ transactions }) => {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-      {/* Line Chart */}
       <div className="bg-white p-4 rounded-lg border">
         <h3 className="text-sm font-medium mb-3 text-gray-600">
           Balance Trend
@@ -52,7 +49,6 @@ const Charts = ({ transactions }) => {
         </ResponsiveContainer>
       </div>
 
-      {/* Pie Chart */}
       <div className="bg-white p-4 rounded-lg border">
         <h3 className="text-sm font-medium mb-3 text-gray-600">
           Expenses by Category

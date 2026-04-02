@@ -99,7 +99,7 @@ npm run dev
 
 ## 🎥 Demo
 
-(Optional: Add screenshots or a demo link here)
+https://finance-ui-roan.vercel.app
 
 ---
 
